@@ -1,5 +1,4 @@
 'use client'
-import Image from 'next/image'
 import { useState } from 'react'
 import { Repositorie } from '../apollo/fetcher'
 import { motion } from 'framer-motion'
@@ -9,7 +8,7 @@ export const RepositoriesContainer = ({ repos }: { repos: Repositorie }) => {
   const [active, setActive] = useState(repos[0].data)
 
   return (
-    <div>
+    <div className='rounded bg-white p-3.5 text-black mt-4'>
       <ul className='grid grid-cols-2'>
         {repos.map(({ data }) => (
           <li

@@ -1,0 +1,26 @@
+.test {
+  animation-duration: 0.34s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-name: textBreak;
+  filter: url(#squiggly-1);
+  letter-spacing: 4px;
+}
+
+@keyframes textBreak {
+  0% {
+    filter: url('#squiggly-0');
+  }
+  25% {
+    filter: url('#squiggly-1');
+  }
+  50% {
+    filter: url('#squiggly-2');
+  }
+  75% {
+    filter: url('#squiggly-3');
+  }
+  100% {
+    filter: url('#squiggly-4');
+  }
+}

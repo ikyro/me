@@ -1,14 +1,14 @@
 'use client'
 import { useState } from 'react'
-import { Repositorie } from '../apollo/fetcher'
+import { Repositorie } from 'apollo/fetcher'
 import { motion } from 'framer-motion'
-import { RepoInfo } from './RepoInfo'
+import { RepoInfo } from 'app/components/RepoInfo'
 
-export const RepositoriesContainer = ({ repos }: { repos: Repositorie }) => {
+export const Repos = ({ repos }: { repos: Repositorie }) => {
   const [active, setActive] = useState(repos[0].data)
 
   return (
-    <div className='rounded bg-white p-3.5 text-black mt-4'>
+    <div className='mt-4 rounded bg-white p-3.5 text-black'>
       <ul className='grid grid-cols-2'>
         {repos.map(({ data }) => (
           <li

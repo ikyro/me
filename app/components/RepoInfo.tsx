@@ -1,5 +1,5 @@
-import { Repositorie } from '../apollo/fetcher'
-import { Image3D } from './Image3D'
+import { Repositorie } from 'apollo/fetcher'
+import { Image3D } from 'app/components/Image3D'
 
 export const RepoInfo = ({ repo }: { repo: Repositorie[0]['data'] }) => {
   const dateFormat = new Intl.DateTimeFormat('en-US', {

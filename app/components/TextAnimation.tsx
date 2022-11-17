@@ -1,4 +1,4 @@
-import text from '../app/portfolio/text.module.css'
+import text from 'app/styles/text.module.css'
 
 export const TextAnimation = () => {
   return (
@@ -28,11 +28,7 @@ export const TextAnimation = () => {
               result='noise'
               seed='0'
             />
-            <feDisplacementMap
-              in='SourceGraphic'
-              in2='noise'
-              scale='6'
-            />
+            <feDisplacementMap in='SourceGraphic' in2='noise' scale='6' />
           </filter>
           <filter id='squiggly-1'>
             <feTurbulence
@@ -41,11 +37,7 @@ export const TextAnimation = () => {
               result='noise'
               seed='1'
             />
-            <feDisplacementMap
-              in='SourceGraphic'
-              in2='noise'
-              scale='8'
-            />
+            <feDisplacementMap in='SourceGraphic' in2='noise' scale='8' />
           </filter>
 
           <filter id='squiggly-2'>
@@ -55,11 +47,7 @@ export const TextAnimation = () => {
               result='noise'
               seed='2'
             />
-            <feDisplacementMap
-              in='SourceGraphic'
-              in2='noise'
-              scale='6'
-            />
+            <feDisplacementMap in='SourceGraphic' in2='noise' scale='6' />
           </filter>
           <filter id='squiggly-3'>
             <feTurbulence
@@ -68,11 +56,7 @@ export const TextAnimation = () => {
               result='noise'
               seed='3'
             />
-            <feDisplacementMap
-              in='SourceGraphic'
-              in2='noise'
-              scale='8'
-            />
+            <feDisplacementMap in='SourceGraphic' in2='noise' scale='8' />
           </filter>
 
           <filter id='squiggly-4'>
@@ -82,11 +66,7 @@ export const TextAnimation = () => {
               result='noise'
               seed='4'
             />
-            <feDisplacementMap
-              in='SourceGraphic'
-              in2='noise'
-              scale='6'
-            />
+            <feDisplacementMap in='SourceGraphic' in2='noise' scale='6' />
           </filter>
         </defs>
       </svg>

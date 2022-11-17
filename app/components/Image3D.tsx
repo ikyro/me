@@ -5,7 +5,7 @@ import 'atropos/atropos.min.css'
 
 export const Image3D = (props: ImageProps) => {
   return (
-    <Atropos>
+    <Atropos rotateXMax={25}>
       {/* eslint-disable-next-line jsx-a11y/alt-text */}
       <Image {...props} />
     </Atropos>

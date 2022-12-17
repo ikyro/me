@@ -47,3 +47,17 @@ export const GET_REPOSITORI = gql`
     }
   }
 `
+
+export type AvatarResponse = {
+  viewer: {
+    avatarUrl: string
+  }
+}
+
+export const GITHUB_AVATAR = gql`
+  query {
+    viewer {
+      avatarUrl
+    }
+  }
+`

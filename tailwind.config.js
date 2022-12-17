@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'pixel-font': 'var(--pixel-font)',
+        pixel: 'var(--pixel-font)',
+        courier: 'var(--courier-prime-font)',
       },
     },
   },

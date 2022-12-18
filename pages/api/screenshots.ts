@@ -1,7 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { chromium } from 'playwright'
+import { chromium, LaunchOptions } from 'playwright'
+import chrome from 'chrome-aws-lambda'
 
 type Data = Buffer
+type Options = LaunchOptions | false
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,7 +13,13 @@ export default async function handler(
 
   if (!url || !w || !h) return res.status(400).end()
 
-  const browser = await chromium.launch()
+  const options: Options = process.env.NODE_ENV === 'production' && {
+    args: chrome.args,
+    executablePath: await chrome.executablePath,
+    headless: chrome.headless,
+  }
+
+  const browser = await chromium.launch(options || undefined)
   const page = await browser.newPage({
     colorScheme: 'dark',
   })

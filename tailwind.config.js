@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         pixel: 'var(--pixel-font)',
-        courier: 'var(--courier-prime-font)',
+        spaceGrotesk: 'var(--space-grotesk-font)',
       },
     },
   },

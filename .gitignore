@@ -37,3 +37,6 @@ next-env.d.ts
 
 # vscode config
 .vscode/settings.json
+
+# assets precommit
+/public/assets/*.png

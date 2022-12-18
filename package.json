@@ -12,15 +12,11 @@
     "@apollo/client": "^3.7.2",
     "@next/font": "^13.0.6",
     "atropos": "^1.0.2",
-    "chrome-aws-lambda": "^10.1.0",
-    "framer-motion": "^7.9.1",
     "graphql": "^16.6.0",
     "next": "13.0.6",
-    "playwright": "^1.28.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.7.1",
-    "swr": "^2.0.0"
+    "react-icons": "^4.7.1"
   },
   "devDependencies": {
     "@types/node": "18.11.15",
@@ -29,6 +25,7 @@
     "autoprefixer": "^10.4.13",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
+    "playwright": "^1.28.1",
     "postcss": "^8.4.20",
     "prettier": "^2.8.1",
     "prettier-plugin-tailwindcss": "^0.2.1",

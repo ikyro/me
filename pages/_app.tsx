@@ -1,10 +1,10 @@
 import type { AppProps } from 'next/app'
-import { courierPrimeFont, pixelFont } from 'fonts'
+import { pixelFont, spaceGroteskFont } from 'fonts'
 import '../styles/globals.css'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <main className={`${pixelFont.variable} ${courierPrimeFont.variable}`}>
+    <main className={`${pixelFont.variable} ${spaceGroteskFont.variable}`}>
       <Component {...pageProps} />
     </main>
   )

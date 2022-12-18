@@ -1,7 +1,6 @@
 import { Props } from 'pages/me'
 import { ReactNode } from 'react'
 import { A } from './A'
-import { Image3D } from './Image3D'
 import { Topic } from './Topic'
 
 export const ShowRepo = ({
@@ -14,10 +13,10 @@ export const ShowRepo = ({
   children: ReactNode
 }) => {
   return (
-    <main className='grid max-h-[calc(515px-35px-24px)] w-full grid-cols-2 justify-items-center'>
-      <A href={selected?.homepageUrl}>{children}</A>
-      <div className='relative text-center'>
-        <h2 className='text-xl font-bold leading-tight tracking-tight'>
+    <main className='flex w-full flex-col items-center gap-5 font-spaceGrotesk md:grid md:flex-none md:grid-cols-2 md:items-stretch md:gap-0'>
+      {children}
+      <div className='relative pb-10 text-center'>
+        <h2 className='text-base font-bold leading-tight tracking-tight md:text-xl'>
           {selected?.name}
         </h2>
         <A href={selected?.url} className='group relative text-xs'>
@@ -26,16 +25,16 @@ export const ShowRepo = ({
         </A>
         <p className='my-4'>{selected?.description}</p>
 
-        <p className=''>topics:</p>
+        <p className='text-sm'>topics:</p>
         <ul className='flex flex-wrap items-center justify-center gap-2.5'>
           {selected?.repositoryTopics.map((topic, i) => (
             <Topic key={i}>{topic}</Topic>
           ))}
         </ul>
-        <span className='absolute bottom-0 left-0 text-xs'>
+        <span className='absolute bottom-0 left-0 text-xs md:left-2.5'>
           Created: {dateFormat.format(new Date(selected?.createdAt as string))}
         </span>
-        <span className='absolute bottom-0 right-0 text-xs'>
+        <span className='absolute bottom-0 right-0 text-xs md:right-2.5'>
           Updated: {dateFormat.format(new Date(selected?.updatedAt as string))}
         </span>
       </div>

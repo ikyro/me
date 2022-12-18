@@ -1,40 +1,36 @@
 import { fetchGithubRepos } from 'utils/fetcher'
 import { GetStaticProps, NextPage } from 'next'
 import { GITHUB_REPOSITORIES } from 'constants/github'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { Image3D } from 'components/Image3D'
 import { Navbar } from 'components/Navbar'
 import { RSS } from 'components/RSS'
-import { useIntersectionObserver } from 'hooks/useIntersectionObserver'
-import { Topic } from 'components/Topic'
 import { Button } from 'components/Button'
-import { A } from 'components/A'
 import { ShowRepo } from 'components/ShowRepo'
-import { ImageObserver } from 'components/ImageObserver'
+import Head from 'next/head'
 
 export type Props = {
   repos: Awaited<ReturnType<typeof fetchGithubRepos>>['res']
 }
 
+const dateFormat = new Intl.DateTimeFormat('en-US', {
+  dateStyle: 'medium',
+})
+
 const Portfolio: NextPage<Props> = ({ repos }) => {
-  const ref = useRef<HTMLDivElement>(null)
   const [selectedRepo, setSelectedRepo] = useState(repos[0])
-  const { intersecting } = useIntersectionObserver({ ref })
-
-  const dateFormat = new Intl.DateTimeFormat('en-US', {
-    dateStyle: 'medium',
-  })
-
-  console.log({ intersecting })
 
   return (
     <>
+      <Head>
+        <title>Portfolio</title>
+      </Head>
       <Navbar title={"Hi, I'm Ikyro"}>
         <RSS />
       </Navbar>
       <main className='grid min-h-screen place-items-center bg-black font-courier'>
-        <div className='h-[600px] w-[650px] rounded bg-white p-3' ref={ref}>
-          <ul className='flex w-full'>
+        <div className='w-80 rounded bg-white p-3 md:w-[650px]'>
+          <ul className='mb-2 flex w-full items-center justify-center gap-1 md:gap-2'>
             {repos.map((repo, i) => (
               <li
                 key={i}
@@ -47,9 +43,12 @@ const Portfolio: NextPage<Props> = ({ repos }) => {
             ))}
           </ul>
           <ShowRepo dateFormat={dateFormat} selected={selectedRepo}>
-            <ImageObserver
-              url={selectedRepo?.homepageUrl as string}
-              observer={intersecting}
+            <Image3D
+              src={`/assets/${selectedRepo?.name}.png`}
+              alt={`screenshot of ${selectedRepo?.homepageUrl}`}
+              width={300}
+              height={300}
+              className='h-auto w-auto max-w-full select-none'
             />
           </ShowRepo>
         </div>

@@ -7,19 +7,24 @@ jobs:
   get-screen-shots:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 19
           check-latest: true
+
       - run: npm i -g pnpm@latest
       - run: pnpm i
+
       - run: pnpm run pre:dev
-      - uses: EndBug/add-and-commit@v9
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
         with:
+          add: 'public'
+          message: 'chore: update screenshots'
           author_name: ${{ github.actor }}
           author_email: ${{ github.actor }}@users.noreply.github.com
-          message: 'chore: update screenshots'
-          add: 'screenshots'
           push: true
-          branch: ${{ github.head_ref }}

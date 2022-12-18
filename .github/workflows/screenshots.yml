@@ -25,5 +25,4 @@ jobs:
         with:
           add: '*.png'
           message: 'chore: update screenshots'
-          committer_name: GitHub Actions
-          committer_email: actions@github.com
+          default_author: github_actions
